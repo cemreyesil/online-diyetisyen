@@ -140,6 +140,16 @@ th {
   margin: 20px auto;
 }
 
+/* QR Code section */
+.qr-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.qr-section img {
+  max-width: 150px;
+  height: auto;
+}
 
 /* Mobile Cihazlar için Düzenleme */
 @media (max-width: 768px) {
