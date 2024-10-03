@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix Your Eat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script> <!-- Linking to the external JS file -->
+</head>
+<body>
+
+    <header>
+        <h1>Fix Your Eat</h1>
+    </header>
+
+    <div class="container">
+        <div class="complaint-section">
+            <h2>Şikayetinizi Yazın</h2>
+            <form method="POST" action="/">
+                <textarea id="user_input" name="user_input" placeholder="Buraya şikayetinizi yazın..." required></textarea>
+
+                <h3>Opsiyonel Bilgiler</h3>
+                
+                <label for="gender">Cinsiyet (Opsiyonel):</label>
+                <select id="gender" name="gender">
+                    <option value="">Seçiniz</option>
+                    <option value="male">Erkek</option>
+                    <option value="female">Kadın</option>
+                </select><br><br>
+
+                <label for="age">Yaş (Opsiyonel):</label>
+                <input type="number" id="age" name="age" placeholder="Yaşınız"><br><br>
+
+                <label for="weight">Kilo (Opsiyonel):</label>
+                <input type="number" id="weight" name="weight" placeholder="Kilonuz (kg)"><br><br>
+
+                <div class="buttons">
+                    <button type="button" onclick="startRecognition()">Konuş</button>
+                    <button type="submit">Sor</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

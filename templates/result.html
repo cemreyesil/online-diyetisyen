@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix Your Eat - Sonuç</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>Fix Your Eat - Sonuç</h1>
+    </header>
+
+    <div class="container">
+        <div class="program-section">
+            <h2>Haftalık Program</h2>
+            {% if program.error %}
+                <p style="color: red;">{{ program.error }}</p>
+            {% else %}
+                <table>
+                    <thead>
+                        <tr>
+                          <th>Gün</th>
+                          <th>Kahvaltı</th>
+                          <th>Ara Öğün</th>
+                          <th>Öğle Yemeği</th>
+                          <th>Akşam Yemeği</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {% for day in program.program %}
+                      <tr>
+                          <td>{{ day.gun }}</td>
+                          <td>{{ day.kahvalti | join(', ') }}</td>
+                          <td>{{ day.ara_ogun | join(', ') }}</td>
+                          <td>{{ day.ogun | join(', ') }}</td>
+                          <td>{{ day.aksam | join(', ') }}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                </table>
+
+                <!-- Display the short comment below the program -->
+                <div class="comment-section">
+                    <h3>Yorum</h3>
+                    <p>{{ program.comment }}</p>
+                </div>
+            {% endif %}
+            <!-- Cool Button to Redirect to "Bizi Değerlendirin" -->
+            <div class="button-container" style="margin-top: 20px; text-align: center;">
+              <a href="http://mth.tc/3nNE" target="_blank">
+                  <button class="btn" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
+                      Bizi Değerlendirin
+                  </button>
+              </a>
+          </div>
+        </div>
+    </div>
+
+</body>
+</html>
