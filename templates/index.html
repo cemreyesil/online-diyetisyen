@@ -16,7 +16,7 @@
     <div class="container">
         <div class="complaint-section">
             <h2>Şikayetinizi Yazın</h2>
-            <form method="POST" action="/">
+            <form method="POST" action="/" onsubmit="showLoading()">
                 <textarea id="user_input" name="user_input" placeholder="Buraya şikayetinizi yazın..." required></textarea>
 
                 <h3>Opsiyonel Bilgiler</h3>
@@ -36,11 +36,21 @@
 
                 <div class="buttons">
                     <button type="button" onclick="startRecognition()">Konuş</button>
-                    <button type="submit">Sor</button>
+                    <button type="submit" id="submit-btn">Sor</button>
                 </div>
+
+                <!-- Loading spinner -->
+                <div class="loading-spinner" id="loading-spinner"></div>
             </form>
         </div>
     </div>
 
+    <script>
+        function showLoading() {
+            // Hide the submit button and show the loading spinner
+            document.getElementById('submit-btn').style.display = 'none';
+            document.getElementById('loading-spinner').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
