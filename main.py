@@ -101,4 +101,5 @@ def generate_eating_program(user_input, gender='', age='', weight=''):
         return {'error': f"Failed to parse response: {str(e)}. Response: {program_json}"}
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False, host='0.0.0.0')
+
